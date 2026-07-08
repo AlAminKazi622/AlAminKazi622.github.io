@@ -38,13 +38,14 @@ author:
   googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
   inspire-hep      : # URL
   impactstory      : # URL
-  orcid            : "https://orcid.org/yourorcidurl"
+  orcid            : "https://orcid.org/my-orcid?orcid=0009-0003-6329-8801"
   semantic         : # URL
   ssrn             : # URL
   pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
-  researchgate     : # URL
+  researchgate     : "https://www.researchgate.net/profile/Md-Al-Amin-Kazi?ev=hdr_xprf"
   scopus           : # URL
   zotero           : # URL
+  LinkedIn         : "www.linkedin.com/in/md-al-amin-kazi-5b540b1b2"
 
 
   # Repositories and software development
