@@ -35,7 +35,8 @@ author:
   # Academic websites
   academia         : # URL
   arxiv            : # URL - Update with the correct link to your profile
-  googlescholar    : "https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  googlescholar    : #"https://scholar.google.com/citations?user=PS_CX0AAAAAJ"
+  LinkedIn         : "https://www.linkedin.com/in/md-al-amin-kazi-5b540b1b2/?skipRedirect=true"
   inspire-hep      : # URL
   impactstory      : # URL
   orcid            : "https://orcid.org/my-orcid?orcid=0009-0003-6329-8801"
