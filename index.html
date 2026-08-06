@@ -1,0 +1,819 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Md Al Amin Kazi — Researcher, Optical Wireless Communication &amp; AI/ML</title>
+<meta name="description" content="Md Al Amin Kazi — Research portfolio in Optical Wireless Communication (LiFi/WiFi/6G), Health AI, Machine Learning, Networks and Cybersecurity.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;1,9..144,450&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F3F4EF;
+    --card:#FFFFFF;
+    --ink:#151A21;
+    --ink-soft:#4A515B;
+    --ink-faint:#8A9099;
+    --signal:#1F7A8C;
+    --signal-deep:#155A68;
+    --pulse:#E0A24B;
+    --line:#DBDCD3;
+    --line-soft:#E8E9E2;
+    --radius:3px;
+    --display: 'Fraunces', serif;
+    --body: 'IBM Plex Sans', -apple-system, sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  a{color:var(--signal-deep);}
+  a:hover{color:var(--pulse);}
+
+  ::selection{background:var(--pulse); color:var(--ink);}
+
+  :focus-visible{
+    outline:2px solid var(--signal);
+    outline-offset:3px;
+  }
+
+  /* ---------- Layout shell ---------- */
+  .shell{
+    display:grid;
+    grid-template-columns:300px 1fr;
+    min-height:100vh;
+  }
+
+  /* ---------- Sidebar ---------- */
+  .sidebar{
+    position:sticky;
+    top:0;
+    height:100vh;
+    padding:44px 32px;
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+    overflow-y:auto;
+  }
+
+  .sidebar-top{display:flex; flex-direction:column; gap:22px;}
+
+  .avatar-wrap{
+    width:104px;
+    height:104px;
+    border-radius:50%;
+    overflow:hidden;
+    border:1px solid var(--line);
+    flex-shrink:0;
+  }
+  .avatar-wrap img{width:100%; height:100%; object-fit:cover; display:block;}
+
+  .id-name{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:1.5rem;
+    line-height:1.22;
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .id-role{
+    font-family:var(--mono);
+    font-size:0.74rem;
+    color:var(--signal-deep);
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    margin:6px 0 0;
+  }
+  .id-affil{
+    font-size:0.86rem;
+    color:var(--ink-soft);
+    margin:10px 0 0;
+    line-height:1.5;
+  }
+
+  nav.sidenav{margin-top:8px;}
+  nav.sidenav ul{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px;}
+  nav.sidenav a{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+    color:var(--ink-soft);
+    font-size:0.86rem;
+    padding:7px 8px;
+    border-radius:var(--radius);
+    transition:color .15s ease, background .15s ease;
+  }
+  nav.sidenav a .dash{
+    width:12px; height:1px; background:var(--ink-faint);
+    transition:width .15s ease, background .15s ease;
+    flex-shrink:0;
+  }
+  nav.sidenav a:hover{color:var(--ink); background:var(--line-soft);}
+  nav.sidenav a.active{color:var(--ink); font-weight:500;}
+  nav.sidenav a.active .dash{width:22px; background:var(--pulse);}
+
+  .sidebar-bottom{display:flex; flex-direction:column; gap:14px;}
+  .socials{display:flex; flex-wrap:wrap; gap:8px 14px;}
+  .socials a{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    text-decoration:none;
+    border-bottom:1px solid var(--line);
+  }
+  .socials a:hover{color:var(--signal-deep); border-color:var(--signal-deep);}
+
+  .mono-tag{
+    font-family:var(--mono);
+    font-size:0.68rem;
+    color:var(--ink-faint);
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- Mobile top bar ---------- */
+  .topbar{display:none;}
+
+  /* ---------- Main content ---------- */
+  main{padding:0 0 80px;}
+  .content-inner{max-width:760px; margin:0 auto; padding:0 48px;}
+
+  section{padding-top:76px; scroll-margin-top:24px;}
+  section:first-of-type{padding-top:56px;}
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--signal-deep);
+    margin:0 0 10px;
+  }
+  h2.section-title{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:1.9rem;
+    letter-spacing:-0.01em;
+    margin:0 0 26px;
+  }
+
+  /* ---------- Signal pulse divider (signature element) ---------- */
+  .pulse-line{
+    width:100%;
+    height:30px;
+    display:block;
+    margin:6px 0 34px;
+  }
+  .pulse-line path{
+    fill:none;
+    stroke:var(--line);
+    stroke-width:1.4;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding-top:64px;}
+  .hero-kicker{
+    font-family:var(--mono);
+    font-size:0.78rem;
+    color:var(--ink-faint);
+    margin:0 0 18px;
+  }
+  .hero h1{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:clamp(2.1rem, 4vw, 3rem);
+    line-height:1.12;
+    letter-spacing:-0.015em;
+    margin:0 0 20px;
+  }
+  .hero h1 em{
+    font-style:italic;
+    color:var(--signal-deep);
+    font-weight:450;
+  }
+  .hero-lede{
+    font-size:1.06rem;
+    color:var(--ink-soft);
+    max-width:58ch;
+    margin:0 0 8px;
+  }
+
+  #pulse-hero{
+    width:100%;
+    height:64px;
+    margin:34px 0 6px;
+  }
+  #pulse-hero path{
+    fill:none;
+    stroke:var(--signal);
+    stroke-width:1.6;
+    stroke-dasharray:6 4600;
+    stroke-dashoffset:0;
+    animation:travel 7s linear infinite;
+  }
+  #pulse-hero path.bg{
+    stroke:var(--line);
+    stroke-dasharray:none;
+    animation:none;
+    stroke-width:1.2;
+  }
+  @keyframes travel{
+    0%{stroke-dashoffset:0;}
+    100%{stroke-dashoffset:-4600;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    #pulse-hero path{animation:none;}
+  }
+
+  /* ---------- About ---------- */
+  .lede-para{font-size:1rem; color:var(--ink-soft);}
+  .lede-para strong{color:var(--ink); font-weight:600;}
+
+  /* ---------- Tag pills ---------- */
+  .tag-row{display:flex; flex-wrap:wrap; gap:8px; margin:18px 0 4px;}
+  .tag{
+    font-family:var(--mono);
+    font-size:0.74rem;
+    padding:5px 11px;
+    border:1px solid var(--line);
+    border-radius:100px;
+    color:var(--ink-soft);
+    background:var(--card);
+  }
+
+  /* ---------- Experience entries ---------- */
+  .entry{
+    border-top:1px solid var(--line);
+    padding:28px 0;
+  }
+  .entry:last-child{padding-bottom:4px;}
+  .entry-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+    flex-wrap:wrap;
+    margin-bottom:6px;
+  }
+  .entry-title{
+    font-family:var(--display);
+    font-size:1.14rem;
+    font-weight:600;
+    margin:0;
+  }
+  .entry-date{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--ink-faint);
+    white-space:nowrap;
+  }
+  .entry-org{
+    font-size:0.88rem;
+    color:var(--signal-deep);
+    margin:0 0 4px;
+    font-weight:500;
+  }
+  .entry-super{
+    font-size:0.82rem;
+    color:var(--ink-faint);
+    margin:0 0 12px;
+  }
+  .entry-desc{
+    font-size:0.93rem;
+    color:var(--ink-soft);
+    margin:0 0 14px;
+  }
+  .readout{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--signal-deep);
+    background:#EEF3EF;
+    border:1px solid var(--line-soft);
+    border-radius:var(--radius);
+    padding:9px 12px;
+    line-height:1.7;
+    word-break:break-word;
+  }
+  .readout span.sep{color:var(--ink-faint); margin:0 8px;}
+
+  /* ---------- Publications ---------- */
+  .pub-list{list-style:none; margin:0; padding:0;}
+  .pub{
+    display:flex;
+    gap:16px;
+    align-items:flex-start;
+    padding:16px 0;
+    border-top:1px solid var(--line-soft);
+  }
+  .pub:first-child{border-top:none;}
+  .pub-num{
+    font-family:var(--mono);
+    font-size:0.74rem;
+    color:var(--ink-faint);
+    padding-top:2px;
+    flex-shrink:0;
+    width:22px;
+  }
+  .pub-body p{margin:0 0 6px; font-size:0.94rem; color:var(--ink);}
+  .status{
+    font-family:var(--mono);
+    font-size:0.68rem;
+    text-transform:uppercase;
+    letter-spacing:0.04em;
+    padding:2px 8px;
+    border-radius:100px;
+    display:inline-block;
+  }
+  .status.submitted{background:#FBF1DF; color:#8A6412;}
+  .status.ongoing{background:#E6EEF6; color:var(--signal-deep);}
+
+  /* ---------- Education ---------- */
+  .edu-entry{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:8px 16px;
+    padding:20px 0;
+    border-top:1px solid var(--line);
+    align-items:baseline;
+  }
+  .edu-entry:last-child{border-bottom:1px solid var(--line);}
+  .edu-degree{font-family:var(--display); font-weight:600; font-size:1.05rem; margin:0;}
+  .edu-dept{font-size:0.88rem; color:var(--ink-soft); margin:2px 0 0;}
+  .edu-meta{
+    font-family:var(--mono);
+    font-size:0.74rem;
+    color:var(--ink-faint);
+    text-align:right;
+    white-space:nowrap;
+  }
+
+  /* ---------- Skills ---------- */
+  .skill-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px 32px;}
+  .skill-group h3{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-faint);
+    margin:0 0 12px;
+    font-weight:500;
+  }
+  .skill-group .tag-row{margin-top:0;}
+
+  /* ---------- Contact ---------- */
+  .contact-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:10px 20px;
+    margin-top:8px;
+  }
+  .contact-card{
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    padding:16px 18px;
+    background:var(--card);
+    text-decoration:none;
+    display:block;
+    transition:border-color .15s ease, transform .15s ease;
+  }
+  .contact-card:hover{border-color:var(--signal); transform:translateY(-1px);}
+  .contact-card .k{
+    font-family:var(--mono);
+    font-size:0.66rem;
+    text-transform:uppercase;
+    letter-spacing:0.05em;
+    color:var(--ink-faint);
+    display:block;
+    margin-bottom:5px;
+  }
+  .contact-card .v{font-size:0.9rem; color:var(--ink); word-break:break-word;}
+
+  footer{
+    margin-top:70px;
+    padding-top:24px;
+    border-top:1px solid var(--line);
+    font-family:var(--mono);
+    font-size:0.72rem;
+    color:var(--ink-faint);
+    display:flex;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:10px;
+  }
+
+  /* ---------- Mobile ---------- */
+  @media (max-width: 880px){
+    .shell{display:block;}
+    .sidebar{display:none;}
+    .topbar{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      padding:16px 20px;
+      border-bottom:1px solid var(--line);
+      position:sticky; top:0; background:var(--paper); z-index:20;
+    }
+    .topbar-id{display:flex; align-items:center; gap:10px;}
+    .topbar-id img{width:34px; height:34px; border-radius:50%; object-fit:cover;}
+    .topbar-id span{font-family:var(--display); font-weight:600; font-size:0.98rem;}
+    #menu-toggle{
+      background:none; border:1px solid var(--line); border-radius:var(--radius);
+      font-family:var(--mono); font-size:0.72rem; padding:7px 12px; color:var(--ink);
+    }
+    .mobile-nav{
+      display:none;
+      flex-direction:column;
+      padding:8px 20px 18px;
+      border-bottom:1px solid var(--line);
+      background:var(--paper);
+    }
+    .mobile-nav.open{display:flex;}
+    .mobile-nav a{
+      text-decoration:none; color:var(--ink-soft); font-size:0.92rem;
+      padding:10px 0; border-bottom:1px solid var(--line-soft);
+    }
+    .content-inner{padding:0 22px;}
+    .skill-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .entry-date{order:2;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-id">
+    <img src="images/profile.jpg" alt="">
+    <span>Al Amin Kazi</span>
+  </div>
+  <button id="menu-toggle" aria-expanded="false" aria-controls="mobile-nav">Menu</button>
+</div>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="#about">About</a>
+  <a href="#research">Research</a>
+  <a href="#experience">Experience</a>
+  <a href="#publications">Publications</a>
+  <a href="#education">Education</a>
+  <a href="#skills">Skills</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="shell">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="sidebar-top">
+      <div class="avatar-wrap"><img src="images/profile.jpg" alt="Portrait of Md Al Amin Kazi"></div>
+      <div>
+        <p class="id-name">Md Al Amin&nbsp;Kazi</p>
+        <p class="id-role">Optical Wireless Comms · AI/ML</p>
+        <p class="id-affil">IICT, Bangladesh University of<br>Engineering &amp; Technology (BUET)</p>
+      </div>
+      <nav class="sidenav" aria-label="Section navigation">
+        <ul>
+          <li><a href="#about" class="nav-link"><span class="dash"></span>About</a></li>
+          <li><a href="#research" class="nav-link"><span class="dash"></span>Research</a></li>
+          <li><a href="#experience" class="nav-link"><span class="dash"></span>Experience</a></li>
+          <li><a href="#publications" class="nav-link"><span class="dash"></span>Publications</a></li>
+          <li><a href="#education" class="nav-link"><span class="dash"></span>Education</a></li>
+          <li><a href="#skills" class="nav-link"><span class="dash"></span>Skills</a></li>
+          <li><a href="#contact" class="nav-link"><span class="dash"></span>Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+    <div class="sidebar-bottom">
+      <div class="socials">
+        <a href="mailto:mdalaminkazi898@gmail.com">Email</a>
+        <a href="https://scholar.google.com/citations?user=rL3L84UAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
+        <a href="https://github.com/AlAminKazi622" target="_blank" rel="noopener">GitHub</a>
+        <a href="http://www.linkedin.com/in/md-al-amin-kazi-5b540b1b2" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.researchgate.net/profile/Md-Al-Amin-Kazi" target="_blank" rel="noopener">ResearchGate</a>
+        <a href="https://orcid.org/0009-0003-6329-8801" target="_blank" rel="noopener">ORCID</a>
+      </div>
+      <p class="mono-tag">Dhaka, Bangladesh</p>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <main>
+    <div class="content-inner">
+
+      <section class="hero" id="top">
+        <p class="hero-kicker">Research portfolio — updated 2026</p>
+        <h1>Building systems that let light&nbsp;<em>carry</em>&nbsp;the signal.</h1>
+        <p class="hero-lede">
+          I'm Md Al Amin Kazi — a researcher working across Optical Wireless Communication
+          (LiFi, WiFi, 6G), Health AI, machine learning, computer networks, and cybersecurity.
+          I'm currently seeking a Master's/PhD position to continue this work at the
+          intersection of communication systems and applied AI.
+        </p>
+        <svg id="pulse-hero" viewBox="0 0 800 64" preserveAspectRatio="none" aria-hidden="true">
+          <path class="bg" d="M0,32 L120,32 L132,32 L140,10 L148,54 L156,32 L164,32 L800,32"/>
+          <path d="M0,32 L120,32 L132,32 L140,10 L148,54 L156,32 L164,32 L800,32"/>
+        </svg>
+      </section>
+
+      <section id="about">
+        <p class="eyebrow">About</p>
+        <h2 class="section-title">Who I am</h2>
+        <p class="lede-para">
+          I completed my <strong>BSc in Physics</strong> from Jashore University of Science and
+          Technology, and have since completed a <strong>Postgraduate Diploma in ICT</strong>
+          at the Institute of Information and Communication Technology (IICT), BUET. I'm
+          passionate about research at the intersection of Optical Wireless Communication
+          (LiFi, WiFi, 6G), Health AI, AI/ML, Computer Networks, and Cybersecurity — and about
+          the connections between these fields. Looking ahead, I want to bring quantum
+          computing and quantitative finance into this work, which is part of why I'm
+          currently pursuing an MSc in Financial Engineering at WorldQuant University, USA,
+          alongside my physics background.
+        </p>
+      </section>
+
+      <section id="research">
+        <p class="eyebrow">Research</p>
+        <h2 class="section-title">Research interests</h2>
+        <div class="tag-row">
+          <span class="tag">Optical Wireless Comm. (LiFi / WiFi / 6G)</span>
+          <span class="tag">Health AI</span>
+          <span class="tag">AI / Machine Learning</span>
+          <span class="tag">Computer Networks</span>
+          <span class="tag">Cybersecurity</span>
+          <span class="tag">Quantum Computing</span>
+          <span class="tag">Quantitative Finance</span>
+        </div>
+      </section>
+
+      <section id="experience">
+        <p class="eyebrow">Experience</p>
+        <h2 class="section-title">Research experience</h2>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">Postgraduate Diploma Project</h3>
+            <span class="entry-date">2026</span>
+          </div>
+          <p class="entry-org">Machine Learning Techniques for Optimizing DCO-OFDM in LiFi Communication</p>
+          <p class="entry-super">Supervisor: Prof. Dr. Md. Rubaiyat Hossain Mondal — IICT, BUET, Dhaka, Bangladesh</p>
+          <p class="entry-desc">
+            Built a MATLAB-simulated DCO-OFDM LiFi dataset of 27,720 samples spanning
+            modulation orders (M = 4–4096) and subcarrier configurations (N = 64–4096).
+            Benchmarked 42 regression models via LazyPredict, then developed Polynomial
+            Regression, MLP, and HistGradientBoostingRegressor models individually —
+            establishing HGBRegressor as the strongest predictor using only two statistical
+            features, cutting input feature overhead by 60% versus existing literature.
+          </p>
+          <div class="readout">
+            R&sup2; = 0.9958 <span class="sep">·</span> RMSE = 0.0575 <span class="sep">·</span> p = 0.0067 (Friedman)
+            <span class="sep">·</span> 5-fold CV &sigma;<sub>R&sup2;</sub> = 0.0001 <span class="sep">·</span>
+            cross-dataset R&sup2; = 0.8114 <span class="sep">·</span> 0.11% loss on 30% corrupted data
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">Research Assistant</h3>
+            <span class="entry-date">Jul 2026 — Present</span>
+          </div>
+          <p class="entry-org">ELITE Research Lab LLC</p>
+          <p class="entry-super">Supervisor: Md Kishor Moral (PhD, Cornell University) — Founder &amp; CEO, ELITE Research Lab LLC; former Adjunct Faculty, St. Thomas University</p>
+          <p class="entry-desc">
+            Developing a cross-layer, multi-cell-aware handover and resource-allocation
+            framework for hybrid LiFi–WiFi networks. Designing a handover model for hybrid
+            RF/LiFi that preserves both connectivity and sensing continuity, a multi-cell
+            architecture that suppresses inter-cell effects for communication while exploiting
+            them for sensing, and an AI-driven resource-allocation system that jointly
+            optimizes communication throughput and sensing accuracy via deep reinforcement
+            learning.
+          </p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">Research Assistant</h3>
+            <span class="entry-date">Oct 2025 — Present</span>
+          </div>
+          <p class="entry-org">Medora Research Institute (MRI)</p>
+          <p class="entry-super">Supervisor: Dr. Md. Murad Hossain — Lecturer, Dept. of Statistics, Gopalganj Science and Technology University</p>
+          <p class="entry-desc">
+            <strong>Project 1 — Explainable AI-based cancer prediction:</strong> built a
+            leak-free pipeline (XGBoost, Random Forest, MLP, Logistic Regression) on
+            structured health data with grid search, 5-fold CV, and standardized scaling.
+            Applied SHAP and LIME alongside effect-size analysis (Cohen's d, odds ratios),
+            identifying cancer history, smoking, age, BMI, and genetic risk as primary
+            drivers, with physical activity showing a protective effect.
+          </p>
+          <div class="readout">
+            XGBoost accuracy = 0.9367 <span class="sep">·</span> ROC-AUC = 0.9663
+            <span class="sep">·</span> mean CV AUC = 0.9564 <span class="sep">·</span> 95% CI 0.9361–0.9896
+          </div>
+          <p class="entry-desc" style="margin-top:16px;">
+            <strong>Project 2 — Heart attack risk prediction:</strong> built an end-to-end
+            pipeline over 26 clinical, demographic, behavioral, and geographical features
+            from an 8,763-instance cardiovascular dataset. Compared Logistic Regression,
+            Random Forest, and Histogram Gradient Boosting; applied SHAP, LIME, and
+            permutation importance, plus calibration analysis, threshold tuning, and
+            demographic subgroup evaluation.
+          </p>
+          <div class="readout">
+            HistGB accuracy = 0.633 <span class="sep">·</span> ROC-AUC = 0.530
+            <span class="sep">·</span> n = 8,763 <span class="sep">·</span> features = 26
+          </div>
+        </div>
+      </section>
+
+      <section id="publications">
+        <p class="eyebrow">Publications</p>
+        <h2 class="section-title">Papers &amp; manuscripts</h2>
+        <ul class="pub-list">
+          <li class="pub">
+            <span class="pub-num">01</span>
+            <div class="pub-body">
+              <p>Machine Learning Techniques for Optimizing DCO-OFDM in LiFi Communication</p>
+              <span class="status submitted">Submitted</span>
+            </div>
+          </li>
+          <li class="pub">
+            <span class="pub-num">02</span>
+            <div class="pub-body">
+              <p>Automated Fracture Image Captioning Using Multimodal Vision-Language Models: A Comprehensive Comparative Study on a Clinically Curated Dataset</p>
+              <span class="status submitted">Submitted</span>
+            </div>
+          </li>
+          <li class="pub">
+            <span class="pub-num">03</span>
+            <div class="pub-body">
+              <p>Explainable AI-Based Cancer Prediction Using Advanced Visualization and Machine Learning Models</p>
+              <span class="status submitted">Submitted</span>
+            </div>
+          </li>
+          <li class="pub">
+            <span class="pub-num">04</span>
+            <div class="pub-body">
+              <p>A Machine Learning Framework for Heart Attack Risk Prediction Using Multidimensional Health Data with Explainable AI</p>
+              <span class="status submitted">Submitted</span>
+            </div>
+          </li>
+          <li class="pub">
+            <span class="pub-num">05</span>
+            <div class="pub-body">
+              <p>A Cross-Layer, Multi-Cell-Aware Handover and Resource-Allocation Framework for Hybrid LiFi–WiFi Networks Jointly Optimizing Throughput and Sensing Accuracy via Deep Reinforcement Learning</p>
+              <span class="status ongoing">Ongoing</span>
+            </div>
+          </li>
+          <li class="pub">
+            <span class="pub-num">06</span>
+            <div class="pub-body">
+              <p>A Machine Learning Framework for Network Intrusion Detection and Attack Classification</p>
+              <span class="status ongoing">Ongoing</span>
+            </div>
+          </li>
+          <li class="pub">
+            <span class="pub-num">07</span>
+            <div class="pub-body">
+              <p>A Hybrid Deep Learning Framework for Real-Time Detection of Advanced Persistent Threats (APTs)</p>
+              <span class="status ongoing">Ongoing</span>
+            </div>
+          </li>
+        </ul>
+      </section>
+
+      <section id="education">
+        <p class="eyebrow">Education</p>
+        <h2 class="section-title">Academic background</h2>
+
+        <div class="edu-entry">
+          <div>
+            <p class="edu-degree">MSc in Financial Engineering</p>
+            <p class="edu-dept">WorldQuant University, USA</p>
+          </div>
+          <div class="edu-meta">Oct 2025 — present<br>est. Jun 2027<br>grade ~95%</div>
+        </div>
+        <div class="edu-entry">
+          <div>
+            <p class="edu-degree">Postgraduate Diploma in ICT</p>
+            <p class="edu-dept">Institute of Information &amp; Communication Technology (IICT), BUET</p>
+          </div>
+          <div class="edu-meta">Jul 2023 — Aug 2026<br>CGPA 3.40</div>
+        </div>
+        <div class="edu-entry">
+          <div>
+            <p class="edu-degree">BSc in Physics</p>
+            <p class="edu-dept">Jashore University of Science and Technology</p>
+          </div>
+          <div class="edu-meta">Jan 2017 — Dec 2020<br>CGPA 2.65</div>
+        </div>
+      </section>
+
+      <section id="skills">
+        <p class="eyebrow">Skills</p>
+        <h2 class="section-title">Technical toolkit</h2>
+        <div class="skill-grid">
+          <div class="skill-group">
+            <h3>Programming</h3>
+            <div class="tag-row">
+              <span class="tag">Python</span><span class="tag">Java</span>
+              <span class="tag">C</span><span class="tag">SQL</span><span class="tag">MATLAB</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>AI / ML Frameworks</h3>
+            <div class="tag-row">
+              <span class="tag">PyTorch</span><span class="tag">TensorFlow</span><span class="tag">Keras</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>AI / ML Libraries</h3>
+            <div class="tag-row">
+              <span class="tag">scikit-learn</span><span class="tag">NumPy</span>
+              <span class="tag">Pandas</span><span class="tag">SciPy</span>
+              <span class="tag">Matplotlib</span><span class="tag">Seaborn</span>
+            </div>
+          </div>
+          <div class="skill-group">
+            <h3>Tools</h3>
+            <div class="tag-row">
+              <span class="tag">Google Colab</span><span class="tag">NotebookLM</span>
+              <span class="tag">Git</span><span class="tag">LaTeX</span><span class="tag">Google Cloud Platform</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact">
+        <p class="eyebrow">Contact</p>
+        <h2 class="section-title">Get in touch</h2>
+        <div class="contact-grid">
+          <a class="contact-card" href="mailto:mdalaminkazi898@gmail.com">
+            <span class="k">Email</span><span class="v">mdalaminkazi898@gmail.com</span>
+          </a>
+          <a class="contact-card" href="files/Complete_CV.pdf" target="_blank" rel="noopener">
+            <span class="k">Curriculum Vitae</span><span class="v">Download CV (PDF)</span>
+          </a>
+          <a class="contact-card" href="https://scholar.google.com/citations?user=rL3L84UAAAAJ&hl=en" target="_blank" rel="noopener">
+            <span class="k">Google Scholar</span><span class="v">scholar.google.com/…rL3L84UAAAAJ</span>
+          </a>
+          <a class="contact-card" href="http://www.linkedin.com/in/md-al-amin-kazi-5b540b1b2" target="_blank" rel="noopener">
+            <span class="k">LinkedIn</span><span class="v">md-al-amin-kazi-5b540b1b2</span>
+          </a>
+          <a class="contact-card" href="https://www.researchgate.net/profile/Md-Al-Amin-Kazi" target="_blank" rel="noopener">
+            <span class="k">ResearchGate</span><span class="v">Md-Al-Amin-Kazi</span>
+          </a>
+          <a class="contact-card" href="https://orcid.org/0009-0003-6329-8801" target="_blank" rel="noopener">
+            <span class="k">ORCID</span><span class="v">0009-0003-6329-8801</span>
+          </a>
+          <a class="contact-card" href="https://github.com/AlAminKazi622" target="_blank" rel="noopener">
+            <span class="k">GitHub</span><span class="v">github.com/AlAminKazi622</span>
+          </a>
+        </div>
+      </section>
+
+      <footer>
+        <span>© 2026 Md Al Amin Kazi</span>
+        <span>Built for Master's/PhD applications</span>
+      </footer>
+
+    </div>
+  </main>
+</div>
+
+<script>
+  // Mobile nav toggle
+  const toggle = document.getElementById('menu-toggle');
+  const mnav = document.getElementById('mobile-nav');
+  toggle.addEventListener('click', () => {
+    const open = mnav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open);
+  });
+  mnav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mnav.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll-spy for sidebar nav
+  const links = document.querySelectorAll('.nav-link');
+  const sections = Array.from(links).map(l => document.querySelector(l.getAttribute('href')));
+  const setActive = (id) => {
+    links.forEach(l => l.classList.toggle('active', l.getAttribute('href') === '#' + id));
+  };
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: '-15% 0px -70% 0px', threshold: 0 });
+  sections.forEach(s => s && observer.observe(s));
+</script>
+
+</body>
+</html>
