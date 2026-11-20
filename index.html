@@ -308,6 +308,11 @@
   }
   .readout span.sep{color:var(--ink-faint); margin:0 8px;}
 
+  .entry-list{margin:0 0 14px; padding-left:18px; font-size:0.93rem; color:var(--ink-soft);}
+  .entry-list li{margin-bottom:5px;}
+  .entry-list li::marker{color:var(--pulse);}
+  .entry-list li:last-child{margin-bottom:0;}
+
   /* ---------- Publications ---------- */
   .pub-list{list-style:none; margin:0; padding:0;}
   .pub{
@@ -336,6 +341,7 @@
     border-radius:100px;
     display:inline-block;
   }
+  .pub-authors{font-size:0.84rem !important; color:var(--ink-soft) !important; margin:0 0 8px !important;}
   .status.submitted{background:#FBF1DF; color:#8A6412;}
   .status.ongoing{background:#E6EEF6; color:var(--signal-deep);}
 
@@ -358,6 +364,24 @@
     text-align:right;
     white-space:nowrap;
   }
+
+  .edu-note{font-size:0.84rem; color:var(--ink-soft); margin:8px 0 0;}
+  .sub-title{
+    font-family:var(--mono);
+    font-size:0.72rem;
+    text-transform:uppercase;
+    letter-spacing:0.06em;
+    color:var(--ink-faint);
+    margin:38px 0 12px;
+    font-weight:500;
+  }
+  .cert-list{list-style:none; margin:0; padding:0;}
+  .cert-list li{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:9px 0; border-top:1px solid var(--line-soft); font-size:0.92rem;
+  }
+  .cert-list li:first-child{border-top:none;}
+  .cert-list .d{font-family:var(--mono); font-size:0.72rem; color:var(--ink-faint); white-space:nowrap; padding-top:3px;}
 
   /* ---------- Skills ---------- */
   .skill-grid{display:grid; grid-template-columns:1fr 1fr; gap:26px 32px;}
@@ -448,6 +472,9 @@
     .skill-grid{grid-template-columns:1fr;}
     .contact-grid{grid-template-columns:1fr;}
     .entry-date{order:2;}
+    .edu-entry{grid-template-columns:1fr;}
+    .edu-meta{text-align:left; white-space:normal;}
+    .cert-list li{flex-wrap:wrap; gap:2px 16px;}
   }
 </style>
 </head>
@@ -464,6 +491,7 @@
   <a href="#about">About</a>
   <a href="#research">Research</a>
   <a href="#experience">Experience</a>
+  <a href="#projects">Projects</a>
   <a href="#publications">Publications</a>
   <a href="#education">Education</a>
   <a href="#skills">Skills</a>
@@ -486,6 +514,7 @@
           <li><a href="#about" class="nav-link"><span class="dash"></span>About</a></li>
           <li><a href="#research" class="nav-link"><span class="dash"></span>Research</a></li>
           <li><a href="#experience" class="nav-link"><span class="dash"></span>Experience</a></li>
+          <li><a href="#projects" class="nav-link"><span class="dash"></span>Projects</a></li>
           <li><a href="#publications" class="nav-link"><span class="dash"></span>Publications</a></li>
           <li><a href="#education" class="nav-link"><span class="dash"></span>Education</a></li>
           <li><a href="#skills" class="nav-link"><span class="dash"></span>Skills</a></li>
@@ -516,7 +545,7 @@
         <h1>Building systems that let light&nbsp;<em>carry</em>&nbsp;the signal.</h1>
         <p class="hero-lede">
           I'm Md Al Amin Kazi — a researcher working across Optical Wireless Communication
-          (LiFi, WiFi, 6G), Health AI, machine learning, computer networks, and cybersecurity.
+          (LiFi, WiFi, 6G), Health AI, Machine Learning, Computer Networks, and Cybersecurity.
           I'm currently seeking a Master's/PhD position to continue this work at the
           intersection of communication systems and applied AI.
         </p>
@@ -530,15 +559,15 @@
         <p class="eyebrow">About</p>
         <h2 class="section-title">Who I am</h2>
         <p class="lede-para">
-          I completed my <strong>BSc in Physics</strong> from Jashore University of Science and
-          Technology, and have since completed a <strong>Postgraduate Diploma in ICT</strong>
-          at the Institute of Information and Communication Technology (IICT), BUET. I'm
-          passionate about research at the intersection of Optical Wireless Communication
-          (LiFi, WiFi, 6G), Health AI, AI/ML, Computer Networks, and Cybersecurity — and about
-          the connections between these fields. Looking ahead, I want to bring quantum
-          computing and quantitative finance into this work, which is part of why I'm
-          currently pursuing an MSc in Financial Engineering at WorldQuant University, USA,
-          alongside my physics background.
+          I'm a <strong>physics graduate and postgraduate researcher</strong> with academic
+          training in ICT and Financial Engineering. I completed my BSc in Physics at Jashore
+          University of Science and Technology, am completing a Postgraduate Diploma in ICT at
+          the Institute of Information and Communication Technology (IICT), BUET, and am
+          pursuing an MSc in Financial Engineering at WorldQuant University (online). My
+          research experience spans LiFi communication, hybrid LiFi–WiFi networks, machine
+          learning, deep learning, and explainable AI, with hands-on experience in MATLAB-based
+          communication system simulation, predictive modeling, statistical evaluation, and
+          multimodal medical image analysis.
         </p>
       </section>
 
@@ -562,129 +591,170 @@
 
         <div class="entry">
           <div class="entry-head">
-            <h3 class="entry-title">Postgraduate Diploma Project</h3>
-            <span class="entry-date">2026</span>
-          </div>
-          <p class="entry-org">Machine Learning Techniques for Optimizing DCO-OFDM in LiFi Communication</p>
-          <p class="entry-super">Supervisor: Prof. Dr. Md. Rubaiyat Hossain Mondal — IICT, BUET, Dhaka, Bangladesh</p>
-          <p class="entry-desc">
-            Built a MATLAB-simulated DCO-OFDM LiFi dataset of 27,720 samples spanning
-            modulation orders (M = 4–4096) and subcarrier configurations (N = 64–4096).
-            Benchmarked 42 regression models via LazyPredict, then developed Polynomial
-            Regression, MLP, and HistGradientBoostingRegressor models individually —
-            establishing HGBRegressor as the strongest predictor using only two statistical
-            features, cutting input feature overhead by 60% versus existing literature.
-          </p>
-          <div class="readout">
-            R&sup2; = 0.9958 <span class="sep">·</span> RMSE = 0.0575 <span class="sep">·</span> p = 0.0067 (Friedman)
-            <span class="sep">·</span> 5-fold CV &sigma;<sub>R&sup2;</sub> = 0.0001 <span class="sep">·</span>
-            cross-dataset R&sup2; = 0.8114 <span class="sep">·</span> 0.11% loss on 30% corrupted data
-          </div>
-        </div>
-
-        <div class="entry">
-          <div class="entry-head">
             <h3 class="entry-title">Research Assistant</h3>
             <span class="entry-date">Jul 2026 — Present</span>
           </div>
-          <p class="entry-org">ELITE Research Lab LLC</p>
-          <p class="entry-super">Supervisor: Md Kishor Moral (PhD, Cornell University) — Founder &amp; CEO, ELITE Research Lab LLC; former Adjunct Faculty, St. Thomas University</p>
-          <p class="entry-desc">
-            Developing a cross-layer, multi-cell-aware handover and resource-allocation
-            framework for hybrid LiFi–WiFi networks. Designing a handover model for hybrid
-            RF/LiFi that preserves both connectivity and sensing continuity, a multi-cell
-            architecture that suppresses inter-cell effects for communication while exploiting
-            them for sensing, and an AI-driven resource-allocation system that jointly
-            optimizes communication throughput and sensing accuracy via deep reinforcement
-            learning.
-          </p>
+          <p class="entry-org">ELITE Research Lab LLC · Dhaka, Bangladesh</p>
+          <p class="entry-super">Supervisor: Md Kishor Moral — CEO, ELITE Research Lab LLC</p>
+          <ul class="entry-list">
+            <li>Designing an RF/LiFi handover model for seamless connectivity and continuous sensing in hybrid LiFi–WiFi networks.</li>
+            <li>Developing a multi-cell architecture to suppress communication interference while leveraging inter-cell signals for sensing.</li>
+            <li>Implementing deep reinforcement learning for resource allocation, jointly optimizing network throughput and sensing accuracy.</li>
+          </ul>
         </div>
 
         <div class="entry">
           <div class="entry-head">
             <h3 class="entry-title">Research Assistant</h3>
-            <span class="entry-date">Oct 2025 — Present</span>
+            <span class="entry-date">Oct 2025 — Sep 2026</span>
           </div>
-          <p class="entry-org">Medora Research Institute (MRI)</p>
-          <p class="entry-super">Supervisor: Dr. Md. Murad Hossain — Lecturer, Dept. of Statistics, Gopalganj Science and Technology University</p>
-          <p class="entry-desc">
-            <strong>Project 1 — Explainable AI-based cancer prediction:</strong> built a
-            leak-free pipeline (XGBoost, Random Forest, MLP, Logistic Regression) on
-            structured health data with grid search, 5-fold CV, and standardized scaling.
-            Applied SHAP and LIME alongside effect-size analysis (Cohen's d, odds ratios),
-            identifying cancer history, smoking, age, BMI, and genetic risk as primary
-            drivers, with physical activity showing a protective effect.
-          </p>
+          <p class="entry-org">Medora Research Institute (MRI) · Dhaka, Bangladesh</p>
+          <p class="entry-super">Supervisor: Dr. Md. Murad Hossain — Associate Professor, Dept. of Statistics, Gopalganj Science and Technology University</p>
+          <ul class="entry-list">
+            <li>Built a leak-free cancer prediction pipeline using XGBoost, Random Forest, MLP, and Logistic Regression, achieving 93.67% accuracy and 0.9663 ROC-AUC with XGBoost.</li>
+            <li>Developed an end-to-end heart attack risk prediction pipeline using 8,763 instances and 26 clinical, demographic, behavioral, and geographical features.</li>
+            <li>Applied SHAP, LIME, permutation importance, calibration analysis, threshold tuning, statistical effect-size analysis, and demographic subgroup evaluation for explainable health AI.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">Postgraduate Diploma Project Researcher</h3>
+            <span class="entry-date">2026</span>
+          </div>
+          <p class="entry-org">Institute of Information and Communication Technology (IICT), BUET · Dhaka, Bangladesh</p>
+          <p class="entry-super">Supervisor: Prof. Dr. Md. Rubaiyat Hossain Mondal</p>
+          <ul class="entry-list">
+            <li>Simulated 27,720 DCO-OFDM LiFi samples in MATLAB across modulation orders M = 4–4096 and FFT sizes N = 64–4096.</li>
+            <li>Benchmarked 42 regression models using LazyPredict and developed HistGradientBoosting, MLP, and Polynomial Regression models.</li>
+            <li>Identified HGBRegressor as the best predictor, achieving R&sup2; = 0.9958 and RMSE = 0.0575 while reducing feature overhead by 60%.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="projects">
+        <p class="eyebrow">Projects</p>
+        <h2 class="section-title">Research &amp; academic projects</h2>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">Multi-Cell Handover and Resource Allocation for Hybrid LiFi–WiFi Networks</h3>
+            <span class="entry-date">Jul 2026 — Present</span>
+          </div>
+          <p class="entry-super">Supervisor: Md Kishor Moral</p>
+          <ul class="entry-list">
+            <li>Designing an RF/LiFi handover model for seamless connectivity and continuous sensing.</li>
+            <li>Developing a multi-cell architecture for communication interference suppression and inter-cell sensing.</li>
+            <li>Implementing a Deep Reinforcement Learning system to jointly optimize network throughput and sensing accuracy.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">Machine Learning Techniques for Optimizing DCO-OFDM in LiFi Communication</h3>
+            <span class="entry-date">2026</span>
+          </div>
+          <p class="entry-super">Supervisor: Prof. Dr. Md. Rubaiyat Hossain Mondal</p>
+          <ul class="entry-list">
+            <li>Simulated 27,720 DCO-OFDM LiFi samples across modulation orders and FFT sizes using MATLAB.</li>
+            <li>Benchmarked 42 regression models and developed HistGradientBoosting, MLP, and Polynomial Regression predictors.</li>
+            <li>Achieved R&sup2; = 0.9958 and RMSE = 0.0575 with HGBRegressor while reducing feature overhead by 60%.</li>
+          </ul>
           <div class="readout">
-            XGBoost accuracy = 0.9367 <span class="sep">·</span> ROC-AUC = 0.9663
-            <span class="sep">·</span> mean CV AUC = 0.9564 <span class="sep">·</span> 95% CI 0.9361–0.9896
+            R&sup2; = 0.9958 <span class="sep">·</span> RMSE = 0.0575 <span class="sep">·</span> n = 27,720
+            <span class="sep">·</span> 42 models benchmarked <span class="sep">·</span> &minus;60% feature overhead
           </div>
-          <p class="entry-desc" style="margin-top:16px;">
-            <strong>Project 2 — Heart attack risk prediction:</strong> built an end-to-end
-            pipeline over 26 clinical, demographic, behavioral, and geographical features
-            from an 8,763-instance cardiovascular dataset. Compared Logistic Regression,
-            Random Forest, and Histogram Gradient Boosting; applied SHAP, LIME, and
-            permutation importance, plus calibration analysis, threshold tuning, and
-            demographic subgroup evaluation.
-          </p>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">Explainable AI-Based Cancer Prediction Using Machine Learning</h3>
+            <span class="entry-date">Oct 2025 — Sep 2026</span>
+          </div>
+          <p class="entry-super">Supervisor: Dr. Md. Murad Hossain</p>
+          <ul class="entry-list">
+            <li>Built a leak-free machine learning pipeline using XGBoost, Random Forest, MLP, and Logistic Regression with grid search and 5-fold cross-validation.</li>
+            <li>Achieved 93.67% accuracy, 0.9663 ROC-AUC, and 0.9564 mean CV AUC using XGBoost.</li>
+            <li>Applied SHAP, LIME, Cohen's d, and odds ratios to identify clinical risk and protective factors.</li>
+          </ul>
           <div class="readout">
-            HistGB accuracy = 0.633 <span class="sep">·</span> ROC-AUC = 0.530
-            <span class="sep">·</span> n = 8,763 <span class="sep">·</span> features = 26
+            XGBoost accuracy = 93.67% <span class="sep">·</span> ROC-AUC = 0.9663 <span class="sep">·</span> mean CV AUC = 0.9564
           </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">Explainable AI Framework for Heart Attack Risk Prediction</h3>
+            <span class="entry-date">Oct 2025 — Sep 2026</span>
+          </div>
+          <p class="entry-super">Supervisor: Dr. Md. Murad Hossain</p>
+          <ul class="entry-list">
+            <li>Built an end-to-end heart attack risk prediction pipeline using 8,763 instances and 26 multidimensional health features.</li>
+            <li>Evaluated Logistic Regression, Random Forest, and Histogram Gradient Boosting models.</li>
+            <li>Applied SHAP, LIME, permutation importance, calibration analysis, threshold tuning, and demographic subgroup evaluations.</li>
+          </ul>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">Automated Fracture Image Captioning Using Multimodal Vision-Language Models</h3>
+            <span class="entry-date">2026</span>
+          </div>
+          <ul class="entry-list">
+            <li>Conducted a comprehensive benchmark of nine vision-language architectures for automated fracture X-ray captioning using 710 annotated image-caption pairs from the Ibn Sina Medical Centre dataset.</li>
+            <li>Evaluated and compared multiple visual encoders, including ViT, Swin Transformer, DeiT, BEiT, ConvNeXt, and CLIP, alongside GPT-2-based decoders and end-to-end BLIP and GIT models.</li>
+            <li>Identified BLIP-Base as the best-performing architecture, achieving BLEU-4 (0.353), METEOR (0.530), ROUGE-L (0.464), and CIDEr (0.505), while Swin-Tiny demonstrated superior parameter efficiency.</li>
+            <li>Analyzed the effects of encoder pre-training and decoder capacity on caption quality, identifying model failure modes such as trivial solution collapse and gradient divergence in low-resource medical image captioning.</li>
+          </ul>
+          <div class="readout">
+            BLIP-Base: BLEU-4 = 0.353 <span class="sep">·</span> METEOR = 0.530 <span class="sep">·</span> ROUGE-L = 0.464
+            <span class="sep">·</span> CIDEr = 0.505 <span class="sep">·</span> 9 architectures <span class="sep">·</span> 710 image-caption pairs
+          </div>
+        </div>
+
+        <div class="entry">
+          <div class="entry-head">
+            <h3 class="entry-title">An Ab Initio Study of Structural, Electronic, and Optical Properties of Boron-Carbon-Nitride Bilayers</h3>
+            <span class="entry-date">2017 — 2020</span>
+          </div>
+          <p class="entry-super">BSc thesis project</p>
         </div>
       </section>
 
       <section id="publications">
         <p class="eyebrow">Publications</p>
-        <h2 class="section-title">Papers &amp; manuscripts</h2>
+        <h2 class="section-title">Research publications</h2>
         <ul class="pub-list">
           <li class="pub">
             <span class="pub-num">01</span>
             <div class="pub-body">
-              <p>Machine Learning Techniques for Optimizing DCO-OFDM in LiFi Communication</p>
+              <p><strong>Machine Learning Techniques for Optimizing DCO-OFDM in LiFi Communication</strong> (2026)</p>
+              <p class="pub-authors">Kazi, M. A. A., and Mondal, M. R. H.</p>
               <span class="status submitted">Submitted</span>
             </div>
           </li>
           <li class="pub">
             <span class="pub-num">02</span>
             <div class="pub-body">
-              <p>Automated Fracture Image Captioning Using Multimodal Vision-Language Models: A Comprehensive Comparative Study on a Clinically Curated Dataset</p>
+              <p><strong>Automated Fracture Image Captioning Using Multimodal Vision-Language Models: A Comprehensive Comparative Study on a Clinically Curated Dataset</strong> (2026)</p>
+              <p class="pub-authors">Arman, M., Shuba, S. J., Ahamed, M. S., Hossain, M. A., Kazi, M. A. A., Abdullah, S., Dohan, D. M., Zuberi, N.</p>
               <span class="status submitted">Submitted</span>
             </div>
           </li>
           <li class="pub">
             <span class="pub-num">03</span>
             <div class="pub-body">
-              <p>Explainable AI-Based Cancer Prediction Using Advanced Visualization and Machine Learning Models</p>
+              <p><strong>Explainable AI-Based Cancer Prediction Using Advanced Visualization and Machine Learning Models</strong> (2026)</p>
+              <p class="pub-authors">Fariba, M. H., Brinto, M. F., Kazi, M. A. A., Ahmed, M. T., Khan, M. R., Islam, M. M., Sorna, S. S., Siam, N. F., Hossain, M. M.</p>
               <span class="status submitted">Submitted</span>
             </div>
           </li>
           <li class="pub">
             <span class="pub-num">04</span>
             <div class="pub-body">
-              <p>A Machine Learning Framework for Heart Attack Risk Prediction Using Multidimensional Health Data with Explainable AI</p>
+              <p><strong>A Machine Learning Framework for Heart Attack Risk Prediction Using Multidimensional Health Data with Explainable AI</strong> (2026)</p>
+              <p class="pub-authors">Paul, S., Kazi, M. A. A., Saidunnessa, Roy, D., Deb, S., Refat, M. K., Islam, M. N., Faiyaz, Hossain, M. M.</p>
               <span class="status submitted">Submitted</span>
-            </div>
-          </li>
-          <li class="pub">
-            <span class="pub-num">05</span>
-            <div class="pub-body">
-              <p>A Cross-Layer, Multi-Cell-Aware Handover and Resource-Allocation Framework for Hybrid LiFi–WiFi Networks Jointly Optimizing Throughput and Sensing Accuracy via Deep Reinforcement Learning</p>
-              <span class="status ongoing">Ongoing</span>
-            </div>
-          </li>
-          <li class="pub">
-            <span class="pub-num">06</span>
-            <div class="pub-body">
-              <p>A Machine Learning Framework for Network Intrusion Detection and Attack Classification</p>
-              <span class="status ongoing">Ongoing</span>
-            </div>
-          </li>
-          <li class="pub">
-            <span class="pub-num">07</span>
-            <div class="pub-body">
-              <p>A Hybrid Deep Learning Framework for Real-Time Detection of Advanced Persistent Threats (APTs)</p>
-              <span class="status ongoing">Ongoing</span>
             </div>
           </li>
         </ul>
@@ -696,25 +766,44 @@
 
         <div class="edu-entry">
           <div>
-            <p class="edu-degree">MSc in Financial Engineering</p>
-            <p class="edu-dept">WorldQuant University, USA</p>
+            <p class="edu-degree">Master of Science (MSc) in Financial Engineering</p>
+            <p class="edu-dept">WorldQuant University · Washington, D.C., USA (Online)</p>
           </div>
-          <div class="edu-meta">Oct 2025 — present<br>est. Jun 2027<br>grade ~95%</div>
+          <div class="edu-meta">Oct 2025 — Present<br>Expected graduation: 24 Aug 2027<br>GPA 95%</div>
         </div>
         <div class="edu-entry">
           <div>
-            <p class="edu-degree">Postgraduate Diploma in ICT</p>
-            <p class="edu-dept">Institute of Information &amp; Communication Technology (IICT), BUET</p>
+            <p class="edu-degree">Postgraduate Diploma in Information and Communication Technology</p>
+            <p class="edu-dept">Institute of Information and Communication Technology (IICT), BUET · Dhaka, Bangladesh</p>
+            <p class="edu-note"><strong>Thesis:</strong> Machine Learning for Optimizing DCO-OFDM in LiFi Communication (Advisor: Prof. Dr. Md. Rubaiyat Hossain Mondal)</p>
           </div>
-          <div class="edu-meta">Jul 2023 — Aug 2026<br>CGPA 3.40</div>
+          <div class="edu-meta">Jul 2023 — Present<br>GPA 3.40 / 4.00</div>
         </div>
         <div class="edu-entry">
           <div>
-            <p class="edu-degree">BSc in Physics</p>
-            <p class="edu-dept">Jashore University of Science and Technology</p>
+            <p class="edu-degree">Bachelor of Science (BSc) in Physics</p>
+            <p class="edu-dept">Jashore University of Science and Technology · Jashore, Bangladesh</p>
+            <p class="edu-note"><strong>Thesis:</strong> An Ab Initio Study of Structural, Electronic, and Optical Properties of Boron-Carbon-Nitride Bilayers</p>
           </div>
-          <div class="edu-meta">Jan 2017 — Dec 2020<br>CGPA 2.65</div>
+          <div class="edu-meta">Jan 2017 — Dec 2020<br>GPA 2.65 / 4.00</div>
         </div>
+
+        <h3 class="sub-title">Standardized tests</h3>
+        <ul class="cert-list">
+          <li><span>IELTS Academic: 6.5 overall</span><span class="d">October 2026</span></li>
+        </ul>
+
+        <h3 class="sub-title">Certifications &amp; training</h3>
+        <ul class="cert-list">
+          <li><span>Supervised Machine Learning: Regression and Classification</span><span class="d">May 9, 2024</span></li>
+          <li><span>Advanced Learning Algorithms</span><span class="d">Nov 4, 2024</span></li>
+          <li><span>Understanding the Internet (Blended Learning)</span><span class="d">Dec 22, 2024</span></li>
+          <li><span>Introduction to Machine Learning</span><span class="d">May 21, 2025</span></li>
+          <li><span>How Google Does Machine Learning</span><span class="d">Jul 6, 2025</span></li>
+          <li><span>Python Essentials for MLOps</span><span class="d">Jul 8, 2025</span></li>
+          <li><span>Data Analysis with Python</span><span class="d">Aug 9, 2026</span></li>
+          <li><span>Machine Learning with Python (V2)</span><span class="d">Aug 9, 2026</span></li>
+        </ul>
       </section>
 
       <section id="skills">
